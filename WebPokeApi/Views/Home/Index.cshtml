@@ -1,0 +1,25 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+	<h1 class="display-4">Welcome</h1>
+	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+	<div class="row">
+		@foreach (var @pokemon in @ViewBag.PokemonList.results)
+		{
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="@pokemon.root.sprites.other.dream_world.front_default" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">@pokemon.name</h5>
+
+					@foreach (var @type in @pokemon.root.types)
+					{
+						<p>@type.type.name</p>
+					}
+				</div>
+			</div>
+		}
+	</div>
+</div>
